@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Hotel Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <header class="header" id="navigation-menu">
+    <div class="container">
+      <nav>
+        
+
+        <ul class="nav-menu" style="margin-left: 250px ;">
+          <li> <a href="#home" class="nav-link">Home</a> </li>
+          <li> <a href="#about" class="nav-link">About</a> </li>
+          <li> <a href="#room" class="nav-link">Rooms</a> </li>
+          <li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
+          <li> <a href="#gallary" class="nav-link">Gallery</a> </li>
+          <li> <a href="#contact" class="nav-link">Contact</a> </li>
+          <% if (user != undefined) { %>
+            <li> <a href="/rooms/profile/user" class="nav-link">Profile</a> </li>
+            <li> <a href="/logout" class="nav-link">Log out</a> </li>
+          <% } else { %>
+            <li> <a href="/login" class="nav-link">Login</a> </li>
+          <% } %>
+
+        </ul>
+
+        <div class="hambuger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hambuger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hambuger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+  <section class="home" id="home">
+    <div class="head_container">
+      <div class="box">
+          <img src="./image/rantotel1.png" class="logo" alt="">
+      </div>
+      <div class="image">
+        <img src="image/x3.jpg" class="slide">
+      </div>
+      <div class="image_item">
+        <img src="image/x1.jpg" alt="" class="slide active" onclick="img('image/x1.jpg')">
+        <img src="image/y3.jpg" alt="" class="slide" onclick="img('image/y3.jpg')">
+        <img src="image/x2.jpg" alt="" class="slide" onclick="img('image/x2.jpg')">
+        <img src="image/x3.jpg" alt="" class="slide" onclick="img('image/x3.jpg')">
+      </div>
+    </div>
+  </section>
+  <script>
+    function img(anything) {
+      document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+      const line = document.querySelector('.image');
+      line.style.background = change;
+    }
+  </script>
+  <section class="book">
+    <div class="container flex" style="margin-top: 800px;">
+      <div class="input grid">
+        <form class="input grid" action="/rooms" method="post">
+            <div class="box">
+              <label>Start:</label>
+              <input type="date" name="start" placeholder="Check-in-Date">
+            </div>
+            <div class="box">
+              <label>End:</label>
+              <input type="date" name="end" placeholder="Check-out-Date">
+            </div>
+          </div>
+          <div class="search">
+            <input type="submit" value="SEARCH">
+          </div>
+        </form>
+
+    </div>
+  </section>
+  <section class="about top" id="about">
+    <div class="container flex">
+      <div class="left">
+        <div class="img">
+          <img src="image/a1.jpg" alt="" class="image1">
+        </div>
+      </div>
+      <div class="right">
+        <div class="heading">
+          <h5>Experience Paradise Here</h5>
+          <h2>Welcome to Rant Hotel</h2>
+          <p></p>
+          <p>This hotel features elegant interior design and modern rooms to welcome guests.
+            Fully renovated, it offers a wonderful vacation experience with stunning views from many rooms.
+            </p>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper top">
+    <div class="container">
+      <div class="text">
+        <h2>OUR FACILITIES</h2>
+        <p>We offer a wide range of facilities including a swimming pool, fitness center, spa services, and delicious dining options.</p>
+
+        <div class="content">
+          <div class="box flex">
+            <i class="fas fa-swimming-pool"></i>
+            <span>Swimming Pool</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-dumbbell"></i>
+            <span>Gym & Yoga</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-spa"></i>
+            <span>Spa & Massage</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-ship"></i>
+            <span>Boat Tours</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-swimmer"></i>
+            <span>Surfing Lessons</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-microphone"></i>
+            <span>Conference Events</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-water"></i>
+            <span>Diving & Snorkeling</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-umbrella-beach"></i>
+            <span>Private Beach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="room top" id="room">
+    <div class="container">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>ELEVATE YOUR COMFORT</h5>
+          <h2>Rooms & Suites</h2>
+        </div>
+      </div>
+
+      <div class="content grid">
+        <div class="box">
+          <div class="img">
+            <img src="image/bed1.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>Single Room</h3>
+            <p> <span>$</span>100  </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/bed2.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>Double Rooms</h3>
+            <p> <span>$</span>150 </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/bed3.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>Premium Rooms</h3>
+            <p> <span>$</span>300 </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="wrapper wrapper2 top"></section>
+
+
+  <section class="restaurant top" id="restaurant">
+    <div class="container flex">
+      <div class="left">
+        <img src="image/restor.jpg" alt="">
+      </div>
+      <div class="right">
+        <div class="text">
+          <h2>Our Restaurant</h2>
+          <p>We offer cuisines from many cultures at our hotel restaurant.</p>
+        </div>
+        <div class="accordionWrapper">
+          <div class="accordionItem open">
+            <h2 class="accordionIHeading">Italian Cuisine</h2>
+            <div class="accordionItemContent">
+              <p>Our Italian menus feature classic dishes with fresh tomatoes, mozzarella, and greens.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Mexican Cuisine</h2>
+            <div class="accordionItemContent">
+              <p>Our Mexican menu features bold, spicy sauces, grilled meats with fresh vegetables, and traditional breads. Signature dishes like tacos are served with guacamole and salsa.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Indian Cuisine</h2>
+            <div class="accordionItemContent">
+              <p>
+                Indian cuisine is known for its rich curries, flavorful meat dishes, and a variety of appetizers and desserts. It blends regional traditions with influences from Asia, Africa, and Europe.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Scandinavian Cuisine</h2>
+            <div class="accordionItemContent">
+              <p>Our seafood is sourced from the cold northern seas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+      accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+      var itemClass = this.parentNode.className;
+      for (var i = 0; i < accItem.length; i++) {
+        accItem[i].className = 'accordionItem close';
+      }
+      if (itemClass == 'accordionItem close') {
+        this.parentNode.className = 'accordionItem open';
+      }
+    }
+  </script>
+
+
+
+  <section class="gallary mtop " id="gallary">
+    <div class="container">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>OUR GALLERY</h5>
+          <h2>SNAPSHOTS FROM OUR HOTEL</h2>
+        </div>
+        
+      </div>
+
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <img src="image/g1.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g2.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g3.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g4.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g5.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g6.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g7.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g8.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/z1.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/z2.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/z3.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/z4.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/z5.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+  </script>
+ 
+    <section class="map top">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100167.12407127525!2d26.22683944961999!3d38.32067512441813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bb79b752d35675%3A0x61287b379ef50511!2zw4dlxZ9tZSwgT3ZhY8Sxaywgw4dlxZ9tZS_EsHptaXI!5e0!3m2!1str!2str!4v1672140468511!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ 
+    </section>
+  <footer id="contanct">
+    <div class="container grid top">
+      <div class="box">
+        <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+        <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Accepted payment methods</p>
+        <div class="payment grid">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+          <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+          <img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+        </div>
+      </div>
+
+     
+    
+      <div class="box">
+        <h3>For Guests</h3>
+        <ul>
+          <li>About Rant Hotel</li>
+          <li>Customer Service</li>
+          <li>Corporate Accounts</li>
+          <li>Financial Information</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Contact Us</h3>
+
+        <ul>
+          <li>Izmir, Cesme - Beachside, Bars Street, Postal Code 3162</li>
+          <li><i class="far fa-envelope"></i> ranthotel@gmail.com</li>
+          <li><i class="far fa-phone-alt"></i> 444 222 44 44</li>
+          <li><i class="far fa-phone-alt"></i> 444 222 44 55</li>
+          <li><i class="far fa-comments"></i> 24/7 Service</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

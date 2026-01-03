@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/pp.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 1rem;
+            padding: 1rem;
+        }
+    </style>
+    <header class="header" id="navigation-menu">
+      <div class="container_" style="background-color: #4aa6b5; width: 100%;">
+          <nav>
+              
+              <ul class="nav-menu" style="margin-left: 250px ; color: white;">
+                  <li> <a href="/#home" class="nav-link">Home</a> </li>
+                  <li> <a href="/#about" class="nav-link">About</a> </li>
+                  <li> <a href="/#rooms" class="nav-link">Rooms</a> </li>
+                  <li> <a href="/#restaurant" class="nav-link">Restaurant</a> </li>
+                  <li> <a href="/#gallary" class="nav-link">Gallery</a> </li>
+                  <li> <a href="/#contact" class="nav-link">Contact</a> </li>
+              </ul>
+              <div class="hambuger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </nav>
+      </div>
+  </header>
+  <script>
+      const hambuger = document.querySelector('.hambuger');
+      const navMenu = document.querySelector('.nav-menu');
+  
+      hambuger.addEventListener("click", mobileMenu);
+  
+      function mobileMenu() {
+        hambuger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      }
+  
+      const navLink = document.querySelectorAll('.nav-link');
+      navLink.forEach((n) => n.addEventListener("click", closeMenu));
+  
+      function closeMenu() {
+        hambuger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+  </script>
+    <div class="container" style="margin-top: 4rem;">
+      <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div style="background-color: #ecfafb;" class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    alt="Admin"
+                    class="rounded-circle"
+                    width="150"
+                  />
+                  <div class="mt-3">
+                    <h4><%- user.name %></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div style="background-color: #ecfafb;;" class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary"><%- user.name %></div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary"><%- user.email %></div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Phone Number</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary"><%- user.phone %></div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%- user.address %>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a style="background-color: #d6c580;"
+                      class="btn btn-info"
+                      target="__blank"
+                      href="/rooms/profile/edit"
+                      >Edit my information</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+        <div class="container">
+            <h3 style="margin-left: 1rem; margin-top: 5rem;">PAYMENTS</h3>
+            <table border="1">
+                <tr>
+                  <th>No</th>
+                  <th>Price</th>
+                  <th>Start</th>
+                  <th>End</th>
+                </tr>
+                <% books.forEach(book => { %>
+                    <tr>
+                        <td><%- book.odano %></td>
+                        <td><%- book.fiyat %></td>
+                        <td><%- book.baslangic %></td>
+                        <td><%- book.bitis %></td>
+                      </tr>
+                <% }) %>
+        
+              </table>
+            </div>
+      </div>
+    <div class="bottom_image">
+      <img src="/image/rooms_bottom_image.jpg" alt="">
+  </div>
+
+
+
+  <footer>
+      <div class="container grid top">
+        <div class="box">
+          <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+          <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+          <p>Accepted payment methods</p>
+          <div class="payment grid">
+            <img src="https://img.icons8.com/color/48/000000/visa.png" />
+            <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+            <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+            <img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+          </div>
+        </div>
+  
+       
+      
+        <div class="box">
+          <h3>For Guests</h3>
+          <ul>
+            <li>About Rant Hotel</li>
+            <li>Customer Service</li>
+            <li>Corporate Accounts</li>
+            <li>Financial Information</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Contact Us</h3>
+
+          <ul>
+            <li>Izmir, Cesme - Beachside, Bars Street, Postal Code 3162</li>
+            <li><i class="far fa-envelope"></i> ranthotel@gmail.com</li>
+            <li><i class="far fa-phone-alt"></i> 444 222 44 44</li>
+            <li><i class="far fa-phone-alt"></i> 444 222 44 55</li>
+            <li><i class="far fa-comments"></i> 24/7 Service</li>
+          </ul>
+        </div>
+      </div>
+  </footer>
+  </body>
+</html>

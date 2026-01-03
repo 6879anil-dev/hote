@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/css/pp_edit.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color:white;">
+
+
+    <header class="header_" id="navigation-menu">
+      <div class="container_">
+          <nav>
+              
+              <ul class="nav-menu" style="margin-left: 250px ;">
+                <li> <a href="/#home" class="nav-link">Home</a> </li>
+                <li> <a href="/#about" class="nav-link">About</a> </li>
+                <li> <a href="/#rooms" class="nav-link">Rooms</a> </li>
+                <li> <a href="/#restaurant" class="nav-link">Restaurant</a> </li>
+                <li> <a href="/#gallary" class="nav-link">Gallery</a> </li>
+                <li> <a href="/#contact" class="nav-link">Contact</a> </li>
+              </ul>
+              <div class="hambuger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </nav>
+      </div>
+  </header>
+  <script>
+      const hambuger = document.querySelector('.hambuger');
+      const navMenu = document.querySelector('.nav-menu');
+  
+      hambuger.addEventListener("click", mobileMenu);
+  
+      function mobileMenu() {
+        hambuger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      }
+  
+      const navLink = document.querySelectorAll('.nav-link');
+      navLink.forEach((n) => n.addEventListener("click", closeMenu));
+  
+      function closeMenu() {
+        hambuger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+  </script>
+
+    <div style="background-color: #81ccc8; color: white;"
+    class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row"
+  >
+    <h2 class="h5 mb-3 mb-lg-0"">
+      <a href="../../pages/admin/customers.html" class="text-muted"
+        ><i class="bi bi-arrow-left-square me-2"></i
+      ></a>
+      Edit Information
+    </h2>
+  </div>
+  <form action="/rooms/profile/edit" method="post">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div style="background-color: #ffffff;" class="card-body">
+                <h3 class="h6 mb-4">Customer Information</h3>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Full Name</label>
+                      <input type="text" name="name" class="form-control" value="<%- user.name %>"/>
+                    </div>
+                  </div><div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">National ID Number</label>
+                      <input type="text" class="form-control" name="tc" value="<%- user.tc %>" />
+                    </div>  <div class="col-lg-6">
+
+                  </div>
+                </div>
+                
+                  </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input type="email" name="email" class="form-control" value="<%- user.email %>" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Phone Number</label>
+                      <input type="text" name="phone" class="form-control" value="<%- user.phone %>" />
+                    </div>
+                  </div>
+                  
+                
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div style="background-color: #ffffff;" class="card-body">
+                <h3 class="h6 mb-4">Address Information</h3>
+                <div class="mb-3">
+                  <label class="form-label">Enter your address</label>
+                  <input type="text" name="address" class="form-control" value="<%- user.address %>" />
+                </div>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+               <div style="float:left; margin-left: 4rem;"
+          class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+          <div class="hstack gap-3">
+                <input style="background-color: #d6c580;"
+                      class="btn btn-info"
+                      target="__blank"
+                      type="submit"
+                    >Save</input>
+            <a style="background-color:#ffffff;"
+                    class="btn btn-info"
+                    target="__blank"
+                    href="/"
+                  >Cancel</a>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+    <div class="container-fluid">
+      <div class="container"> 
+  </body>
+
+  <div class="bottom_image">
+    <img src="./rooms_bottom_image.jpg" alt="">
+</div>
+
+<footer>
+    <div class="container_ grid top">
+      <div class="box">
+        <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+        <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Accepted payment methods</p>
+        <div class="payment grid">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+          <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+          <img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+        </div>
+      </div>
+
+     
+    
+      <div class="box">
+        <h3>For Guests</h3>
+        <ul>
+          <li>About Rant Hotel</li>
+          <li>Customer Service</li>
+          <li>Corporate Accounts</li>
+          <li>Financial Information</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Contact Us</h3>
+
+        <ul>
+          <li>Izmir, Cesme - Beachside, Bars Street, Postal Code 3162</li>
+          <li><i class="far fa-envelope"></i> ranthotel@gmail.com</li>
+          <li><i class="far fa-phone-alt"></i> 444 222 44 44</li>
+          <li><i class="far fa-phone-alt"></i> 444 222 44 55</li>
+          <li><i class="far fa-comments"></i> 24/7 Service</li>
+        </ul>
+      </div>
+    </div>
+</footer>
+</html>
