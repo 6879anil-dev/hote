@@ -78,6 +78,7 @@ app.use("/", authRouter);
 app.use("/rooms", roomRouter);
 app.use("/admin", adminRouter);
 
-app.listen(process.env.PORT, () => {
-    console.log(`server run on ${process.env.PORT}`)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`server run on ${PORT}`)
 });
